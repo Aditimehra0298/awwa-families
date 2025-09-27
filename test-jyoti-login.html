@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Jyoti Login Design</title>
+    <link rel="stylesheet" href="jyoti-styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Jaini+Purva:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <!-- Top header with logo (left corner) -->
+    <header class="site-header">
+        <img src="jyoti-public/Awwa2-logo.png" alt="AWWA" class="header-logo">
+    </header>
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Left Column - Photo Collage -->
+            <div class="photo-section">
+                <div class="photo-collage">
+                    <img src="jyoti-public/Untitled design (27).png" alt="Families Dashboard" class="main-image">
+                </div>
+            </div>
+
+            <!-- Right Column - Login Form -->
+            <div class="form-section">
+                <div class="form-container">
+                    <!-- Logo and Header -->
+                    <div class="header">
+                        <div class="project-badge">
+                            <span class="badge-text">FAMILIES DASHBOARD</span>
+                        </div>
+                        <div class="hindi-hero">
+                            <div class="hindi-title">Families <i class="fas fa-home"></i></div>
+                            <div class="hindi-sub">☼ Military Family Management System ☼</div>
+                        </div>
+                        <p class="subtitle">Please sign in to continue</p>
+                    </div>
+
+                    <!-- Login Form -->
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label for="userId">User ID</label>
+                            <div class="input-container">
+                                <i class="fas fa-user input-icon"></i>
+                                <input type="text" id="userId" name="userId" value="aditi" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-container">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="password" name="password" value="admin123" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="userType">User Type</label>
+                            <div class="input-container">
+                                <i class="fas fa-shield-alt input-icon"></i>
+                                <select id="userType" name="userType" required>
+                                    <option value="">Select your role</option>
+                                    <option value="L1">L1</option>
+                                    <option value="L2" selected>L2</option>
+                                    <option value="L3">L3</option>
+                                    <option value="L4">L4</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-arrow"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="signin-btn">
+                            Sign In
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Valid users for Families Dashboard
+        const validUsers = [
+            { userId: 'aditi', password: 'admin123', userType: 'L2', name: 'ADITI', designation: 'Family Member', phone: '21BCS9337' },
+            { userId: 'admin', password: 'admin123', userType: 'L1', name: 'Administrator', designation: 'System Admin', phone: '0000000000' },
+            { userId: 'family1', password: 'admin123', userType: 'L2', name: 'Family Member 1', designation: 'Family Member', phone: '1234567890' },
+            { userId: 'family2', password: 'admin123', userType: 'L3', name: 'Family Member 2', designation: 'Family Member', phone: '0987654321' }
+        ];
+
+        // Handle login
+        document.querySelector('.login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const userId = document.getElementById('userId').value.trim();
+            const password = document.getElementById('password').value;
+            const userType = document.getElementById('userType').value;
+
+            console.log('Login attempt:', { userId, password, userType });
+            const match = validUsers.find(u => u.userId === userId && u.password === password && u.userType === userType);
+            console.log('Match found:', match);
+            if (match) {
+                // Store user session info
+                localStorage.setItem('userInfo', JSON.stringify({ 
+                    userId: match.userId, 
+                    name: match.name, 
+                    userType: match.userType,
+                    designation: match.designation,
+                    phone: match.phone
+                }));
+                
+                console.log('Login successful, redirecting...');
+                alert('Login successful! Redirecting to dashboard...');
+                // Redirect to dashboard
+                window.location.href = 'index.html';
+            } else {
+                alert('Invalid credentials.\n\nTry these credentials:\n- aditi / admin123 / L2\n- admin / admin123 / L1\n- family1 / admin123 / L2\n- family2 / admin123 / L3');
+            }
+        });
+
+        // Check if user is already logged in
+        window.addEventListener('load', function() {
+            const userInfo = localStorage.getItem('userInfo');
+            if (userInfo) {
+                // User is already logged in, redirect to dashboard
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>

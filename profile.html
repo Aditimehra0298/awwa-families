@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Army Family Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Profile Page Specific Styles */
+        .profile-container {
+            min-height: 100vh;
+            background: var(--background);
+        }
+        
+        .profile-header {
+            background: var(--brand-darker);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+        
+        .profile-header h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .profile-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .profile-section {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: var(--brand-darker);
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        
+        .section-content {
+            padding: 1.5rem;
+        }
+        
+        .personal-info-grid {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .personal-info-column {
+            flex: 1;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+        
+        .info-value {
+            color: var(--text-medium);
+        }
+        
+        .profile-picture {
+            width: 80px;
+            height: 96px;
+            background: var(--light-gray);
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 1rem;
+        }
+        
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .data-table th,
+        .data-table td {
+            border: 1px solid #d1d5db;
+            padding: 0.5rem 0.75rem;
+            text-align: left;
+        }
+        
+        .data-table th {
+            background: #f3f4f6;
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+        
+        .data-table td {
+            color: var(--text-medium);
+        }
+        
+        .back-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: var(--brand-primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .back-button:hover {
+            background: var(--brand-primary-600);
+        }
+        
+        .action-buttons {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .action-btn {
+            background: var(--success-green);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #059669;
+        }
+        
+        .action-btn.secondary {
+            background: var(--warm-orange);
+        }
+        
+        .action-btn.secondary:hover {
+            background: #ea580c;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Header with Back Button and Actions -->
+        <div class="profile-header" style="position: relative;">
+            <button class="back-button" onclick="window.location.href='index.html'">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </button>
+            
+            <h1>My Profile</h1>
+            
+            <div class="action-buttons">
+                <button class="action-btn secondary">
+                    <i class="fas fa-edit"></i> Edit
+                </button>
+                <button class="action-btn">
+                    <i class="fas fa-download"></i> Download
+                </button>
+                <button class="action-btn secondary">
+                    <i class="fas fa-share"></i> Share
+                </button>
+            </div>
+        </div>
+
+        <div class="profile-content">
+            <!-- Student Personal Information Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Student Personal Information</h2>
+                </div>
+                <div class="section-content">
+                    <div class="personal-info-grid">
+                        <div class="personal-info-column">
+                            <div class="info-row">
+                                <span class="info-label">UID:</span>
+                                <span class="info-value">21BCS9337</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Name:</span>
+                                <span class="info-value">ADITI MEHRA</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Father's Name:</span>
+                                <span class="info-value">SANJEEV MEHRA</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Mother Name:</span>
+                                <span class="info-value">KAVITA MEHRA</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Religion:</span>
+                                <span class="info-value">Hinduism</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">D.O.B.:</span>
+                                <span class="info-value">14 Sep 2003</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Admission Year:</span>
+                                <span class="info-value">2021</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">University:</span>
+                                <span class="info-value">CU</span>
+                            </div>
+                        </div>
+                        
+                        <div class="personal-info-column">
+                            <div class="info-row">
+                                <span class="info-label">Current Semester:</span>
+                                <span class="info-value">8</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Blood Group:</span>
+                                <span class="info-value">O+</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Current Section:</span>
+                                <span class="info-value">C</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Program Code:</span>
+                                <span class="info-value">CS201::B.E. (CSE)</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Student Status:</span>
+                                <span class="info-value">C</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Cast:</span>
+                                <span class="info-value">GEN</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Address:</span>
+                                <span class="info-value" style="text-align: right; max-width: 200px;">#526/1, old oswal street miller, nirankari mohalla, kucha no.1, millerganj, ludhiana</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Profile Picture -->
+                        <div class="profile-picture">
+                            <img src="public/Awwa2-logo.png" alt="Profile Picture">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Qualification Details Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Qualification Details</h2>
+                </div>
+                <div class="section-content">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Qualification</th>
+                                <th>Stream</th>
+                                <th>Collage School Institute</th>
+                                <th>University Board</th>
+                                <th>Passign Year</th>
+                                <th>Percent Marks</th>
+                                <th>Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>10th</td>
+                                <td>GENERAL</td>
+                                <td>SPRING DALE PUBLIC SCHOOL SHERPUR ROAD LUDHIANA</td>
+                                <td>CENTRAL BOARD OF SECONDARY EDUCATION</td>
+                                <td>2019</td>
+                                <td>79.83</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>10+2</td>
+                                <td>NON MEDICAL</td>
+                                <td>SPRING DALE PUBLIC SCHOOL SHERPUR RD (LUDHIANA)</td>
+                                <td>CENTRAL BOARD OF SECONDARY EDUCATION</td>
+                                <td>2021</td>
+                                <td>72.6</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Contact Details Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Contact Details</h2>
+                </div>
+                <div class="section-content">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Contact Type</th>
+                                <th>Residence</th>
+                                <th>Office</th>
+                                <th>Mobile</th>
+                                <th>Emailld</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Father</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td>9888366440</td>
+                                <td>sanjeevmehra459@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mother</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td>9041066440</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Student</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td>7652999123</td>
+                                <td>aditimehra0298@gmail.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add any interactive functionality here if needed
+        console.log('Profile page loaded successfully');
+    </script>
+</body>
+</html>

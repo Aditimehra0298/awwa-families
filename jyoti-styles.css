@@ -1,0 +1,591 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Custom Hindi font: Ams Vedant */
+@font-face {
+    font-family: 'Ams Vedant';
+    src: url('jyoti-public/Ams Vedant.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+    width: 100%;
+}
+
+/* Top-left logo bar */
+.site-header { position: fixed; top: 0; left: 0; right: 0; height: 70px; display:flex; align-items:center; padding: 0 16px; background: rgba(255,255,255,0.8); backdrop-filter: blur(6px); border-bottom: 1px solid #eceff3; z-index: 1000; }
+.header-logo { height: 54px; width: auto; object-fit: contain; }
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* Login Card */
+.login-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+/* Full Background Grid with Screenshots */
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        url('jyoti-public/Screenshot 2025-09-25 120722.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140127.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140203.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140218.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140230.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140250.png'),
+        url('jyoti-public/Screenshot 2025-09-25 140815.png');
+    background-size: 
+        200px 150px,
+        200px 150px,
+        200px 150px,
+        200px 150px,
+        200px 150px,
+        200px 150px,
+        200px 150px;
+    background-position: 
+        20px 20px,
+        250px 20px,
+        480px 20px,
+        20px 200px,
+        250px 200px,
+        480px 200px,
+        20px 380px;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 1;
+    animation: fullBackgroundMove 30s ease-in-out infinite, fullBackgroundRotate 35s linear infinite;
+}
+
+/* Full background movement animation */
+@keyframes fullBackgroundMove {
+    0% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            20px 20px,
+            350px 20px,
+            680px 20px,
+            20px 250px,
+            350px 250px,
+            680px 250px,
+            20px 480px;
+    }
+    25% { 
+        transform: translateY(-15px) translateX(10px) scale(1.02);
+        background-position: 
+            35px 10px,
+            365px 10px,
+            695px 10px,
+            35px 240px,
+            365px 240px,
+            695px 240px,
+            35px 470px;
+    }
+    50% { 
+        transform: translateY(-8px) translateX(-8px) scale(0.98);
+        background-position: 
+            15px 30px,
+            345px 30px,
+            675px 30px,
+            15px 260px,
+            345px 260px,
+            675px 260px,
+            15px 490px;
+    }
+    75% { 
+        transform: translateY(-18px) translateX(8px) scale(1.01);
+        background-position: 
+            30px 5px,
+            360px 5px,
+            690px 5px,
+            30px 235px,
+            360px 235px,
+            690px 235px,
+            30px 465px;
+    }
+    100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            20px 20px,
+            350px 20px,
+            680px 20px,
+            20px 250px,
+            350px 250px,
+            680px 250px,
+            20px 480px;
+    }
+}
+
+/* Full background rotation animation */
+@keyframes fullBackgroundRotate {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(0.5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-0.5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Photo Section */
+.photo-section {
+    flex: 1;
+    background: linear-gradient(180deg, rgba(248, 215, 218, 0.8) 0%, rgba(245, 198, 203, 0.8) 100%);
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.photo-collage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.main-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+/* Form Section */
+.form-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(248, 249, 250, 0.8) 0%, rgba(233, 236, 239, 0.8) 100%);
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    z-index: 10;
+    animation: formFloat 6s ease-in-out infinite;
+}
+
+/* Form floating animation */
+@keyframes formFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Mobile full background movement animation */
+@keyframes fullBackgroundMoveMobile {
+    0% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            20px 20px,
+            200px 20px,
+            380px 20px,
+            20px 140px,
+            200px 140px,
+            380px 140px,
+            20px 260px;
+    }
+    25% { 
+        transform: translateY(-12px) translateX(8px) scale(1.02);
+        background-position: 
+            30px 10px,
+            210px 10px,
+            390px 10px,
+            30px 130px,
+            210px 130px,
+            390px 130px,
+            30px 250px;
+    }
+    50% { 
+        transform: translateY(-6px) translateX(-5px) scale(0.98);
+        background-position: 
+            15px 30px,
+            195px 30px,
+            375px 30px,
+            15px 150px,
+            195px 150px,
+            375px 150px,
+            15px 270px;
+    }
+    75% { 
+        transform: translateY(-15px) translateX(6px) scale(1.01);
+        background-position: 
+            25px 5px,
+            205px 5px,
+            385px 5px,
+            25px 125px,
+            205px 125px,
+            385px 125px,
+            25px 245px;
+    }
+    100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            20px 20px,
+            200px 20px,
+            380px 20px,
+            20px 140px,
+            200px 140px,
+            380px 140px,
+            20px 260px;
+    }
+}
+
+/* Small screen full background movement animation */
+@keyframes fullBackgroundMoveSmall {
+    0% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            10px 10px,
+            120px 10px,
+            230px 10px,
+            10px 90px,
+            120px 90px,
+            230px 90px,
+            10px 170px;
+    }
+    25% { 
+        transform: translateY(-8px) translateX(5px) scale(1.015);
+        background-position: 
+            15px 5px,
+            125px 5px,
+            235px 5px,
+            15px 85px,
+            125px 85px,
+            235px 85px,
+            15px 165px;
+    }
+    50% { 
+        transform: translateY(-4px) translateX(-3px) scale(0.985);
+        background-position: 
+            8px 15px,
+            118px 15px,
+            228px 15px,
+            8px 95px,
+            118px 95px,
+            228px 95px,
+            8px 175px;
+    }
+    75% { 
+        transform: translateY(-10px) translateX(4px) scale(1.01);
+        background-position: 
+            12px 2px,
+            122px 2px,
+            232px 2px,
+            12px 82px,
+            122px 82px,
+            232px 82px,
+            12px 162px;
+    }
+    100% { 
+        transform: translateY(0px) translateX(0px) scale(1);
+        background-position: 
+            10px 10px,
+            120px 10px,
+            230px 10px,
+            10px 90px,
+            120px 90px,
+            230px 90px,
+            10px 170px;
+    }
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.project-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff7a00, #ff9500);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(255, 122, 0, 0.3);
+}
+
+.badge-text {
+    text-transform: uppercase;
+}
+
+.badge-version {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+}
+
+.hindi-hero { display:flex; flex-direction:column; align-items:center; gap:6px; margin-bottom: 10px; font-family: 'Ams Vedant','Jaini Purva','Noto Sans Devanagari', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+.hindi-title { font-size: 64px; font-weight: 900; color:#111; letter-spacing: .5px; line-height: 1.1; display: flex; align-items: center; gap: 8px; }
+.diya-icon { width: 60px; height: 60px; object-fit: contain; }
+.hindi-sub { font-size: 22px; font-weight: 700; color:#555; }
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    font-style: italic;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Form Styles */
+.login-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    color: #666;
+    font-size: 16px;
+    z-index: 2;
+}
+
+.input-container input,
+.input-container select {
+    width: 100%;
+    padding: 16px 16px 16px 50px;
+    border: 2px solid #e1e5e9;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.input-container input:focus,
+.input-container select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-container select {
+    appearance: none;
+    cursor: pointer;
+    background: #f8f9fa;
+    border-color: #e1e5e9;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    color: #666;
+    font-size: 14px;
+    pointer-events: none;
+}
+
+/* Sign In Button */
+.signin-btn {
+    width: 100%;
+    padding: 18px 24px;
+    background: linear-gradient(90deg, #ff6b6b, #ffa500);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.signin-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+}
+
+.signin-btn:active {
+    transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-card {
+        flex-direction: column;
+        min-height: auto;
+    }
+    
+    .photo-section {
+        min-height: 200px;
+    }
+    
+    .main-image {
+        height: 200px;
+        object-fit: cover;
+    }
+    
+    .form-section {
+        padding: 30px 20px;
+    }
+    
+    .login-card::before {
+        background-size: 
+            150px 100px,
+            150px 100px,
+            150px 100px,
+            150px 100px,
+            150px 100px,
+            150px 100px,
+            150px 100px;
+        background-position: 
+            20px 20px,
+            200px 20px,
+            380px 20px,
+            20px 140px,
+            200px 140px,
+            380px 140px,
+            20px 260px;
+        animation: fullBackgroundMoveMobile 25s ease-in-out infinite, fullBackgroundRotate 30s linear infinite;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        max-width: 100%;
+    }
+    
+    .login-card::before {
+        background-size: 
+            100px 70px,
+            100px 70px,
+            100px 70px,
+            100px 70px,
+            100px 70px,
+            100px 70px,
+            100px 70px;
+        background-position: 
+            10px 10px,
+            120px 10px,
+            230px 10px,
+            10px 90px,
+            120px 90px,
+            230px 90px,
+            10px 170px;
+        animation: fullBackgroundMoveSmall 20s ease-in-out infinite, fullBackgroundRotate 25s linear infinite;
+    }
+    
+    .logo-text {
+        font-size: 24px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+    }
+}
